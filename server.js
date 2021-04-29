@@ -15,6 +15,20 @@ app.get("/notes",function(req, res){
     res.sendFile(path.join(__dirname,"./public/notes.html"));
 })
 
+app.get("/api/notes", (req,res) => {
+    res.json(database);
+});
+
+app.post("/api/notes", function(req, res){
+    const newNote = {
+        title: req.body.title,
+        text: req.body.text,
+    }
+
+    database.push(newNote);
+    res.json(database);
+
+});
 
 
 app.get("*", function(req,res) {
