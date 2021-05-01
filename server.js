@@ -2,7 +2,7 @@ console.log("Welcome to Note Taker App")
 
 const express = require('express');
 const path = require('path');
-const uuid = require("uuid");
+// const uuid = require("uuid");
 
 const app = express();
 var PORT = process.env.PORT || 5500;
@@ -35,7 +35,6 @@ app.get("/api/notes/:id", (req,res) => {
 
 app.post("/api/notes", function(req, res){
     const newNote = {
-        id: uuid,
         title: req.body.title,
         text: req.body.text,
     }
