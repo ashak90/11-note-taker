@@ -2,7 +2,7 @@ console.log("Welcome to Note Taker App")
 
 const express = require('express');
 const path = require('path');
-// const uuid = require("uuid");
+const uuid = require("uuid");
 
 const app = express();
 var PORT = process.env.PORT || 5500;
@@ -23,7 +23,7 @@ app.get("/api/notes", (req,res) => {
 app.get("/api/notes/:id", (req,res) => {
     const found = database.some((note) => note.id === parseInt(req.params.id));
     if (found){
-        res.json(database.filter((note) => note.id === parent(req.params.id)))
+        res.json(database.filter((note) => note.id === parent(req.params.id)));
     } else {
       res
         .status(404)
@@ -35,6 +35,7 @@ app.get("/api/notes/:id", (req,res) => {
 
 app.post("/api/notes", function(req, res){
     const newNote = {
+        id: uuid.v5(),
         title: req.body.title,
         text: req.body.text,
     }
