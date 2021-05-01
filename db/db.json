@@ -1,6 +1,7 @@
 [
     {
-        "title":"Test Title",
-        "text":"Test text"
+        "id": "Note 1",
+        "title":"Welcome to Notes",
+        "text":"Using this app you will be able to save and view notes. Deleting notes is not a feature of this version"
     }
 ]
