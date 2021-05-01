@@ -35,7 +35,7 @@ app.get("/api/notes/:id", (req,res) => {
 
 app.post("/api/notes", function(req, res){
     const newNote = {
-        id: uuid.v5(),
+        id: uuid.v4(),
         title: req.body.title,
         text: req.body.text,
     }
