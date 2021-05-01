@@ -19,6 +19,19 @@ app.get("/api/notes", (req,res) => {
     res.json(database);
 });
 
+app.get("/api/notes/:id", (req,res) => {
+    const found = database.some((note) => note.id === parseInt(req.params.id));
+    if (found){
+        res.json(database.filter((note) => note.id === parent(req.params.id)))
+    } else {
+      res
+        .status(404)
+        .json({error: "No note found"});
+
+    }
+
+});
+
 app.post("/api/notes", function(req, res){
     const newNote = {
         title: req.body.title,
